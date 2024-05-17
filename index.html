@@ -1,14 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Assistant</title>
+<style>body {
+  background-color: #f4f1e8;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  margin: 0;
+}
 
-  <title>Maviya Attar</title>
-  
-  <!-- HTML -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/SpeechKITT/1.0.0/speechkitt.min.js"></script>
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+img {
+  display: block;
+  margin: 20px auto;
+}
+
+.android-box {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Add margin to separate from image */
+}
+
+.button-row {
+  margin-bottom: 10px;
+}
+
+button {
+  display: inline-block;
+  border-radius: 25px;
+  border: none;
+  background: #1875FF;
+  color: white;
+  font-family: inherit;
+  text-align: center;
+  font-size: 13px;
+  box-shadow: 0px 14px 56px -11px #1875FF;
+  padding: 1em 2em;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  padding-right: 3.55em;
+}
+
+button span {
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+
+button span:after {
+  content: '☺️';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.7s;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.b-back, .b-copy {
+  background: red;
+}
+
+.b-copy {
+  background: green;
+}
+
+.b-follow {
+  background: #ff7f50; /* Orange color for social media buttons */
+}
+
+.paper-box {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+  max-width: 80%;
+}
+
+#about-page p,
+#residency-page p {
+  margin-top: 20px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+#residency-page ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+#residency-page ul li {
+  margin-bottom: 10px;
+}
+</style >
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SpeechKITT/1.0.0/speechkitt.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/speechkitt/1.0.0/speechkitt-legacy.min.js"></script>
 </head>
 <body>
@@ -81,11 +204,112 @@
     </div>
   </div>
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
+<script>
+ // Typing effect
+var text = "Hi, I am Keran. I am the personal assistant of Maviya.";
+var index = 0;
 
-  
-  <!-- Project -->
-  <script src="main.js"></script>
+function type() {
+    var currentText = text.substring(0, index + 1); // Get the substring up to the current index
+    document.getElementById("text").textContent = currentText;
+    if (index < text.length) {
+        index++;
+        setTimeout(type, 100); // Adjust the delay as needed for the typing effect
+    } else {
+        speak(text); // Speak the entire sentence once it's fully displayed
+    }
+}
+
+type();
+
+function speak(text) {
+    var utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+}
+
+function showAboutInfo() {
+    // Hide main page buttons
+    document.getElementById("main-page").style.display = "none";
+    // Show about page buttons
+    document.querySelector("#about-page .button-row").style.display = "flex";
+    // Change text in the box
+    document.getElementById("text").textContent = "Here is information about Maviya";
+    // Speak the text
+    speak("Here is information about Maviya");
+    // Show about page
+    document.getElementById("about-page").style.display = "flex";
+}
+
+function showContactInfo() {
+    // Hide main page buttons
+    document.getElementById("main-page").style.display = "none";
+    // Show contact page buttons
+    document.querySelector("#contact-page .button-row").style.display = "flex";
+    // Change text in the box
+    document.getElementById("text").textContent = "Phone number: 9999999999";
+    // Speak the text
+    speak("Phone number: 9999999999");
+    // Show contact page
+    document.getElementById("contact-page").style.display = "flex";
+}
+
+function showResidencyInfo() {
+    // Hide main page buttons
+    document.getElementById("main-page").style.display = "none";
+    // Show residency page buttons
+    document.querySelector("#residency-page .button-row").style.display = "flex";
+    // Change text in the box
+    document.getElementById("text").textContent = "Maviya lives in Solapur";
+    // Speak the text
+    speak("Maviya lives in Solapur");
+    // Show residency page
+    document.getElementById("residency-page").style.display = "flex";
+}
+
+function showSocialMediaInfo() {
+    // Hide main page buttons
+    document.getElementById("main-page").style.display = "none";
+    // Show social media page buttons
+    document.querySelector("#social-media-page .button-row").style.display = "flex";
+    // Change text in the box
+    document.getElementById("text").textContent = "Follow me on social media:";
+    // Speak the text
+    speak("Follow me on social media");
+    // Show social media page
+    document.getElementById("social-media-page").style.display = "flex";
+}
+
+function followInstagram() {
+    window.open("https://www.instagram.com/maviya_706?igshid=bGttOXdjdWhhdDR0", "_blank");
+}
+
+function followLinkedIn() {
+    window.open("https://www.linkedin.com/in/maviya-attar-59b619293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", "_blank");
+}
+
+function showMainPage() {
+    // Hide all sections
+    document.getElementById("about-page").style.display = "none";
+    document.getElementById("contact-page").style.display = "none";
+    document.getElementById("residency-page").style.display = "none";
+    document.getElementById("social-media-page").style.display = "none";
+    // Show main page buttons
+    document.getElementById("main-page").style.display = "flex";
+    // Reset the text in the box
+    document.getElementById("text").textContent = "";
+    index = 0;
+    type();
+}
+
+function copyContact() {
+    var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = "9999999999";
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+    alert("Contact number copied to clipboard!");
+}
+</script>
 </body>
-</html>
+        </html>
