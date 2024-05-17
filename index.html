@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Maviya Attar</title>
+  
+  <!-- HTML -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SpeechKITT/1.0.0/speechkitt.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/speechkitt/1.0.0/speechkitt-legacy.min.js"></script>
+</head>
+<body>
+
+  <!-- Image -->
+  <img src="https://i.ibb.co/jVQcXpY/woman-personal-assistant-icon-cartoon-style-vector-36840918-removebg-preview.png" alt="Personal Assistant" width="250px" class="fade-in">
+  
+  <!-- Android-shaped box with typing animation -->
+  <div class="android-box">
+    <p id="text" class="typing-animation"></p>
+  </div>
+  
+  <!-- Button container with fade-in animation -->
+  <div class="button-container fade-in" id="main-page">
+    <!-- Main page buttons -->
+    <div class="button-row">
+      <button class="b-a" onclick="showContactInfo()"><span>Contact</span></button>
+      <button class="b-b" onclick="showAboutInfo()"><span>About</span></button>
+    </div>
+    <div class="button-row">
+      <button class="b-c" onclick="showResidencyInfo()"><span>Residency</span></button>
+      <button class="b-d" onclick="showSocialMediaInfo()"><span>Social Media</span></button>
+    </div>
+  </div>
+
+  <!-- About section -->
+  <div class="button-container fade-in" id="about-page" style="display: none;">
+    <!-- About page buttons -->
+    <div class="button-row">
+      <button class="b-back" onclick="showMainPage()"><span>Back</span></button>
+    </div>
+    <div class="paper-box">
+      <p>Maviya Mujib Attar was born on August 23, 2007, in Solapur, Maharashtra, India, into a devout Muslim family. From a young age, he showed a keen interest in technology, dreaming of becoming a software engineer. Guided by the teachings of Islam, he learned the value of perseverance and hard work. Maviya's journey is a testament to the Islamic principle of striving for excellence in all endeavors. With each step, he is reminded of the words of the Prophet Muhammad (peace be upon him): "The best amongst you are those who have the best manners and character." Maviya aims not only to excel in his career but also to embody the virtues of kindness, compassion, and integrity.</p>
+    </div>
+  </div>
+
+  <!-- Residency section -->
+  <div class="button-container fade-in" id="residency-page" style="display: none;">
+    <!-- Residency page buttons -->
+    <div class="button-row">
+      <button class="b-back" onclick="showMainPage()"><span>Back</span></button>
+    </div>
+    <div class="paper-box">
+      <p>Solapur is a city located in the southwestern region of the Indian state of Maharashtra. It is known for its rich history, textile industry, and religious sites.</p>
+      <ul>
+        <li><strong>History:</strong> Solapur has a long and interesting history, dating back to the 2nd century BC. The city has been ruled by various dynasties, including the Mauryas, the Chalukyas, and the Marathas.</li>
+        <li><strong>Textile industry:</strong> Solapur is a major center for the textile industry in India. The city is famous for its production of chadars (bedsheets) and towels.</li>
+        <li><strong>Religious sites:</strong> Solapur is home to a number of important religious sites, including the Siddheshwar Temple, the Akkalkot Swami Temple, and the Pandharpur Temple.</li>
+        <li><strong>Gadda Yatra:</strong> Solapur is also known for its annual Gadda Yatra, a nine-day religious festival that is celebrated with great pomp and show.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contact section -->
+  <div class="button-container fade-in" id="contact-page" style="display: none;">
+    <!-- Contact page buttons -->
+    <div class="button-row">
+      <button class="b-back" onclick="showMainPage()"><span>Back</span></button>
+      <button class="b-copy" onclick="copyContact()"><span>Copy</span></button>
+    </div>
+  </div>
+
+  <!-- Social Media section -->
+  <div class="button-container fade-in" id="social-media-page" style="display: none;">
+    <!-- Social Media page buttons -->
+    <div class="button-row">
+      <button class="b-back" onclick="showMainPage()"><span>Back</span></button>
+      <button class="b-follow" onclick="followInstagram()"><span>Follow Instagram</span></button>
+      <button class="b-follow" onclick="followLinkedIn()"><span>Follow LinkedIn</span></button>
+    </div>
+  </div>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  
+  <!-- Project -->
+  <script src="main.js"></script>
+</body>
+</html>
